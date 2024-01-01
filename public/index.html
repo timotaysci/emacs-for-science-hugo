@@ -1,64 +1,437 @@
-<!doctype html>
-<html lang="en-uk">
-  <head>
-    <title>Emacs for Science</title>
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.121.1">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="Timothy Johnson" />
-    <meta name="description" content="Emacs for science" />
-    <link rel="stylesheet" href="/css/main.min.5b1fcc8902588589c4767187402a3c29f8b8d7a6fdef6d9f8f77045bb0d14fee.css" />
-    <link rel="alternate" type="application/rss+xml" href="https://example.org/index.xml" title="Emacs for Science">
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Emacs for Science - electric bugoaloo | Emacs for Science</title>
+<meta name="keywords" content="">
+<meta name="description" content="Introduction In late 2023 two things happened that made me push this project forward. One, I declared config bankruptcy and started to rewrite my config from scratch and, two, the guilt of renewing this domain for another year kicked in.
+This site is a extension of a paper written in 2022 which I hope will work as a minimal viable config for people wanting to start out using this tool within their workflows.">
+<meta name="author" content="Timothy Johnson">
+<link rel="canonical" href="https://example.org/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2d50b1531bd1b3146d65c5543bd298f7f982786aadee4c223cb3a1cb51906106.css" integrity="sha256-LVCxUxvRsxRtZcVUO9KY9/mCeGqt7kwiPLOhy1GQYQY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://example.org/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://example.org/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://example.org/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png">
+<link rel="mask-icon" href="https://example.org/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Emacs for Science - electric bugoaloo" />
+<meta property="og:description" content="Introduction In late 2023 two things happened that made me push this project forward. One, I declared config bankruptcy and started to rewrite my config from scratch and, two, the guilt of renewing this domain for another year kicked in.
+This site is a extension of a paper written in 2022 which I hope will work as a minimal viable config for people wanting to start out using this tool within their workflows." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.org/" /><meta property="article:section" content="" />
+<meta property="article:published_time" content="2024-01-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-01-01T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Emacs for Science - electric bugoaloo"/>
+<meta name="twitter:description" content="Introduction In late 2023 two things happened that made me push this project forward. One, I declared config bankruptcy and started to rewrite my config from scratch and, two, the guilt of renewing this domain for another year kicked in.
+This site is a extension of a paper written in 2022 which I hope will work as a minimal viable config for people wanting to start out using this tool within their workflows."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Emacs for Science - electric bugoaloo",
+      "item": "https://example.org/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Emacs for Science - electric bugoaloo",
+  "name": "Emacs for Science - electric bugoaloo",
+  "description": "Introduction In late 2023 two things happened that made me push this project forward. One, I declared config bankruptcy and started to rewrite my config from scratch and, two, the guilt of renewing this domain for another year kicked in.\nThis site is a extension of a paper written in 2022 which I hope will work as a minimal viable config for people wanting to start out using this tool within their workflows.",
+  "keywords": [
     
+  ],
+  "articleBody": "\nIntroduction In late 2023 two things happened that made me push this project forward. One, I declared config bankruptcy and started to rewrite my config from scratch and, two, the guilt of renewing this domain for another year kicked in.\nThis site is a extension of a paper written in 2022 which I hope will work as a minimal viable config for people wanting to start out using this tool within their workflows.\nI have since moved way from the bench and am no longer a reserch scientist. My work has moved into helping scientists with their work using digital tools. Emacs is one such tool.\nUsing this page. This page is a single hosted file. It is written in org. If you download the file and run M-x org-babel-tangle-file and point it to init.el, that will create a config of just the parts needed by emacs. Put this in you ~./emacs.d file and you are good to go.\nRaw files for both the org, and tangled .el file can be found in the assosisated GitHub repo. Let’s get going!\nEssentials This section covers basic functionality needed for either admin, quality of life, or for other programs to work.\nEnable Melpa Melpa is the emacs package repository. Most, if not all, packages in this config are grabbed from there. The below code enables this.\n(require 'package) (add-to-list 'package-archives '(\"melpa\" . \"https://melpa.org/packages/\") t) ;; Comment/uncomment this line to enable MELPA Stable if desired. See `package-archive-priorities` ;; and `package-pinned-packages`. Most users will not need or want to do this. ;;(add-to-list 'package-archives '(\"melpa-stable\" . \"https://stable.melpa.org/packages/\") t) (package-initialize) (package-refresh-contents) use-package Admin, use-package allows you to isolate package configuration within the config.\n(require 'use-package) enable evil mode\nevil mode a quaility of life feature, it gives you access to vi behaviours. some workflows are better with it.\n;; Download Evil (unless (package-installed-p 'evil) (package-install 'evil)) ;; Enable Evil (require 'evil) (evil-mode 1) Auto complete in m-x\n(require 'ivy) (ivy-mode 1) (setq ivy-on-del-error-function #'ignore) (require 'smex) (require 'ido) (ido-mode 1) (setq ido-enable-flex-matching t) Recent files (recentf-mode 1) (setq recentf-max-menu-items 25) Aesthetics\nHide tool bar and menu\n(menu-bar-mode -1) (tool-bar-mode -1) Themes\nThis is super subjective so choose something that works for you, a non-exhaustive list can be found here.\n(require 'kanagawa-theme) (load-theme 'kanagawa t) Misc.\n(setq use-short-answers t) Writing text Focused writing I am a big fan of writeroom-mode, which centers the text and makes the buffer full screen. Focus mode is also super neat, only showing colour formatting on the text block you are writing. Both can be enabled with `M-x`.\n(require 'focus) (require 'writeroom-mode) Visual-line-mode It’s word wrap, it’s needed.\n(visual-line-mode 1) Spell check (flyspell-mode t) Org mode Asthetics (require 'org-modern-mode) (with-eval-after-load 'org (global-org-modern-mode)) Org agenda (setq org-agenda-files (directory-files-recursively \"~/Dropbox/org\" \"\\\\.org$\")) Key bindings\n(global-set-key (kbd \"\") 'org-agenda) Knowledge mangmet Org Roam\n(use-package org-roam :ensure t :custom (org-roam-directory (file-truename \"~/Dropbox/OrgRoam/\")) :bind ((\"C-c n l\" . org-roam-buffer-toggle) (\"C-c n f\" . org-roam-node-find) (\"C-c n g\" . org-roam-graph) (\"C-c n i\" . org-roam-node-insert) (\"C-c n c\" . org-roam-capture) ;; Dailies (\"C-c n j\" . org-roam-dailies-capture-today)) :config ;; If you're using a vertical completion framework, you might want a more informative completion interface (setq org-roam-node-display-template (concat \"${title:*} \" (propertize \"${tags:10}\" 'face 'org-tag))) (org-roam-db-autosync-mode) ;; If using org-roam-protocol (require 'org-roam-roam)) Denote\n(require 'denote) (setq denote-directory \"~/Dropbox/Denote/\") snippet $ cd ~/.emacs.d/plugins $ git clone –recursive https://github.com/joaotavora/yasnippet\n(add-to-list 'load-path \"~/.emacs.d/plugins/yasnippet\") (require 'yasnippet) (yas-global-mode 1) ",
+  "wordCount" : "563",
+  "inLanguage": "en",
+  "datePublished": "2024-01-01T00:00:00Z",
+  "dateModified": "2024-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Timothy Johnson"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://example.org/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Emacs for Science",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://example.org/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
 
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://example.org/" accesskey="h" title="Emacs for Science (Alt + H)">Emacs for Science</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://example.org/" title="Home">
+                    <span class="active">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://example.org/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
     
-    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Emacs for Science"/>
-<meta name="twitter:description" content="Emacs for science"/>
+    <h1 class="post-title entry-hint-parent">
+      Emacs for Science - electric bugoaloo
+    </h1>
+    <div class="post-meta"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;Timothy Johnson
 
-    <meta property="og:title" content="Emacs for Science" />
-<meta property="og:description" content="Emacs for science" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://example.org/" />
+</div>
+  </header> 
+  <div class="post-content"><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<p>In late 2023 two things happened that made me push this project forward. One, I declared config bankruptcy and started to rewrite my config from scratch and, two, the guilt of renewing this domain for another year kicked in.</p>
+<p>This site is a extension of a <a href="https://www.ingentaconnect.com/content/matthey/jmtr/2022/00000066/00000002/art00002;jsessionid=85415haetimmp.x-ic-live-03">paper written in 2022</a> which I hope will work as a minimal viable config for people wanting to start out using this tool within their workflows.</p>
+<p>I have since moved way from the bench and am no longer a reserch scientist. My work has moved into helping scientists with their work using digital tools. Emacs is one such tool.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="using-this-page">Using this page.<a hidden class="anchor" aria-hidden="true" href="#using-this-page">#</a></h2>
+<p>This page is a single hosted file. It is written in org. If you download the file and run <code>M-x org-babel-tangle-file</code> and point it to  <code>init.el</code>, that will create a config of just the parts needed by emacs. Put this in you  <code>~./emacs.d</code> file and you are good to go.</p>
+<p>Raw files for both the org, and tangled .el file can be found in the assosisated GitHub repo. Let&rsquo;s get going!</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="essentials">Essentials<a hidden class="anchor" aria-hidden="true" href="#essentials">#</a></h2>
+<p>This section covers basic functionality needed for either admin, quality of life, or for other programs to work.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="enable-melpa">Enable Melpa<a hidden class="anchor" aria-hidden="true" href="#enable-melpa">#</a></h3>
+<p><a href="https://melpa.org/#/">Melpa</a> is <em>the</em> emacs package repository. Most, if not all, packages in this config are grabbed from there. The below code enables this.</p>
+<pre><code>(require 'package)
+(add-to-list 'package-archives '(&quot;melpa&quot; . &quot;https://melpa.org/packages/&quot;) t)
+;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
+;; and `package-pinned-packages`. Most users will not need or want to do this.
+;;(add-to-list 'package-archives '(&quot;melpa-stable&quot; . &quot;https://stable.melpa.org/packages/&quot;) t)
+(package-initialize)
+(package-refresh-contents)
+</code></pre>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="use-package">use-package<a hidden class="anchor" aria-hidden="true" href="#use-package">#</a></h3>
+<p>Admin, use-package allows you to isolate package configuration within the config.</p>
+<pre><code>(require 'use-package)
+</code></pre>
+<ol>
+<li>
+<p>enable evil mode</p>
+<p><a href="https://github.com/emacs-evil/evil">evil mode</a> a quaility of life feature, it gives you access to vi behaviours. some workflows are better with it.</p>
+<pre><code>;; Download Evil
+(unless (package-installed-p 'evil)
+  (package-install 'evil))
+
+;; Enable Evil
+(require 'evil)
+(evil-mode 1)
+</code></pre>
+<ol>
+<li>
+<p>Auto complete in m-x</p>
+<pre><code>(require 'ivy)
+(ivy-mode 1)
+
+
+(setq ivy-on-del-error-function #'ignore)
 
 
 
-  </head>
-  <body>
-    <header class="app-header">
-      <a href="https://example.org/"><img class="app-header-avatar" src="/avatar.jpg" alt="Timothy Johnson" /></a>
-      <span class="app-header-title">Emacs for Science</span>
-      <nav class="app-header-menu">
-          <a class="app-header-menu-item" href="/">Home</a>
-             - 
-          
-          <a class="app-header-menu-item" href="/about/">About</a>
-      </nav>
-      <p>Emacs for science</p>
-      <div class="app-header-social">
-        
-          <a href="https://github.com/timotaysci" target="_blank" rel="noreferrer noopener me">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
-  <title>Github</title>
-  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-</svg>
-          </a>
-        
-      </div>
-    </header>
-    <main class="app-container">
-      
-  <article>
-    <h1>Emacs for Science</h1>
-    <ul class="posts-list">
-      
+(require 'smex)
+
+
+
+(require 'ido)
+(ido-mode 1)
+
+(setq ido-enable-flex-matching t)
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="recent-files">Recent files<a hidden class="anchor" aria-hidden="true" href="#recent-files">#</a></h2>
+<pre><code>(recentf-mode 1)
+(setq recentf-max-menu-items 25)
+</code></pre>
+<ol>
+<li>
+<p>Aesthetics</p>
+<ol>
+<li>
+<p>Hide tool bar and menu</p>
+<pre><code>(menu-bar-mode -1)
+(tool-bar-mode -1)
+</code></pre>
+</li>
+<li>
+<p>Themes</p>
+<p>This is super subjective so choose something that works for you, a non-exhaustive list can be found <a href="https://emacsthemes.com/">here</a>.</p>
+<pre><code>(require 'kanagawa-theme)
+(load-theme 'kanagawa t)
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Misc.</p>
+<pre><code>(setq use-short-answers t)
+</code></pre>
+</li>
+</ol>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="writing-text">Writing text<a hidden class="anchor" aria-hidden="true" href="#writing-text">#</a></h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="focused-writing">Focused writing<a hidden class="anchor" aria-hidden="true" href="#focused-writing">#</a></h3>
+<p>I am a big fan of writeroom-mode, which centers the text and makes the buffer full screen. Focus mode is also super neat, only showing colour formatting on the text block you are writing. Both can be enabled with `M-x`.</p>
+<pre><code>(require 'focus)
+(require 'writeroom-mode)
+</code></pre>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="visual-line-mode">Visual-line-mode<a hidden class="anchor" aria-hidden="true" href="#visual-line-mode">#</a></h3>
+<p>It&rsquo;s word wrap, it&rsquo;s needed.</p>
+<pre><code>(visual-line-mode 1)
+</code></pre>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="spell-check">Spell check<a hidden class="anchor" aria-hidden="true" href="#spell-check">#</a></h3>
+<pre><code>(flyspell-mode t)
+</code></pre>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="org-mode">Org mode<a hidden class="anchor" aria-hidden="true" href="#org-mode">#</a></h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="asthetics">Asthetics<a hidden class="anchor" aria-hidden="true" href="#asthetics">#</a></h3>
+<pre><code>(require 'org-modern-mode)
+(with-eval-after-load 'org (global-org-modern-mode))
+</code></pre>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="org-agenda">Org agenda<a hidden class="anchor" aria-hidden="true" href="#org-agenda">#</a></h3>
+<pre><code>(setq org-agenda-files
+    (directory-files-recursively &quot;~/Dropbox/org&quot; &quot;\\.org$&quot;))
+</code></pre>
+<ol>
+<li>
+<p>Key bindings</p>
+<pre><code>(global-set-key (kbd &quot;&lt;f12&gt;&quot;) 'org-agenda)
+</code></pre>
+</li>
+</ol>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="knowledge-mangmet">Knowledge mangmet<a hidden class="anchor" aria-hidden="true" href="#knowledge-mangmet">#</a></h3>
+<ol>
+<li>
+<p>Org Roam</p>
+<pre><code>(use-package org-roam
+    :ensure t
+    :custom
+    (org-roam-directory (file-truename &quot;~/Dropbox/OrgRoam/&quot;))
+    :bind ((&quot;C-c n l&quot; . org-roam-buffer-toggle)
+	   (&quot;C-c n f&quot; . org-roam-node-find)
+	   (&quot;C-c n g&quot; . org-roam-graph)
+	   (&quot;C-c n i&quot; . org-roam-node-insert)
+	   (&quot;C-c n c&quot; . org-roam-capture)
+	   ;; Dailies
+	   (&quot;C-c n j&quot; . org-roam-dailies-capture-today))
+    :config
+    ;; If you're using a vertical completion framework, you might want a more informative completion interface
+    (setq org-roam-node-display-template (concat &quot;${title:*} &quot; (propertize &quot;${tags:10}&quot; 'face 'org-tag)))
+    (org-roam-db-autosync-mode)
+    ;; If using org-roam-protocol
+    (require 'org-roam-roam))
+</code></pre>
+</li>
+<li>
+<p>Denote</p>
+<pre><code>(require 'denote)
+(setq denote-directory &quot;~/Dropbox/Denote/&quot;)
+</code></pre>
+</li>
+</ol>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="snippet">snippet<a hidden class="anchor" aria-hidden="true" href="#snippet">#</a></h2>
+<p>$ cd ~/.emacs.d/plugins
+$ git clone –recursive <a href="https://github.com/joaotavora/yasnippet">https://github.com/joaotavora/yasnippet</a></p>
+<pre><code>(add-to-list 'load-path
+	      &quot;~/.emacs.d/plugins/yasnippet&quot;)
+(require 'yasnippet)
+(yas-global-mode 1)
+</code></pre>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
     </ul>
-    
-
-
-
-  </article>
-
+  </footer>
+</article>
     </main>
-  </body>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://example.org/">Emacs for Science</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
 </html>
