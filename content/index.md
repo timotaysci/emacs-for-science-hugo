@@ -1,5 +1,5 @@
 ---
-title: "Emacs for Science"
+title: "Emacs for Science - electric bugoaloo"
 date: 2024-01-01
 ---
 <a id="org63a22bd"></a>
