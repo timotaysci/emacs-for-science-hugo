@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en-uk">
+  <head>
+    <title> // Emacs for Science</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.121.1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Timothy Johnson" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/css/main.min.5b1fcc8902588589c4767187402a3c29f8b8d7a6fdef6d9f8f77045bb0d14fee.css" />
+    
+
+    
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Table of Contents Introduction Using this page. Essentials Enable Melpa use-package Recent files Writing text Focused writing Visual-line-mode Spell check Org mode Asthetics Org agenda Knowledge mangmet snippet Introduction In late 2023 two things happened that made me push this project forward. One, I declared config bankruptcy and started to rewrite my config from scratch and, two, the guilt of renewing this domain for another year kicked in.
+This site is a extension of a paper written in 2022 which I hope will work as a minimal viable config for people wanting to start out using this tool within their workflows."/>
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Table of Contents Introduction Using this page. Essentials Enable Melpa use-package Recent files Writing text Focused writing Visual-line-mode Spell check Org mode Asthetics Org agenda Knowledge mangmet snippet Introduction In late 2023 two things happened that made me push this project forward. One, I declared config bankruptcy and started to rewrite my config from scratch and, two, the guilt of renewing this domain for another year kicked in.
+This site is a extension of a paper written in 2022 which I hope will work as a minimal viable config for people wanting to start out using this tool within their workflows." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.org/posts/test/" /><meta property="article:section" content="posts" />
+
+
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://example.org/"><img class="app-header-avatar" src="/avatar.jpg" alt="Timothy Johnson" /></a>
+      <span class="app-header-title">Emacs for Science</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about/">About</a>
+      </nav>
+      <p>Emacs for science</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/timotaysci" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title"></h1>
+      <div class="post-meta">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jan 1, 0001
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          3 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="table-of-contents">Table of Contents</h1>
+<ol>
+<li><a href="#org63a22bd">Introduction</a>
+<ol>
+<li><a href="#org81e7938">Using this page.</a></li>
+<li><a href="#orgdf8b95b">Essentials</a>
+<ol>
+<li><a href="#orga5cc50c">Enable Melpa</a></li>
+<li><a href="#org18f811b">use-package</a></li>
+</ol>
+</li>
+<li><a href="#org87fb53f">Recent files</a></li>
+<li><a href="#org8168207">Writing text</a>
+<ol>
+<li><a href="#orgd51c246">Focused writing</a></li>
+<li><a href="#org62dd309">Visual-line-mode</a></li>
+<li><a href="#orge410603">Spell check</a></li>
+</ol>
+</li>
+<li><a href="#orgd42aa40">Org mode</a>
+<ol>
+<li><a href="#orgd8074c7">Asthetics</a></li>
+<li><a href="#org96c86e7">Org agenda</a></li>
+<li><a href="#orge5be3f9">Knowledge mangmet</a></li>
+</ol>
+</li>
+<li><a href="#org8a99389">snippet</a></li>
+</ol>
+</li>
+</ol>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="introduction">Introduction</h1>
+<p>In late 2023 two things happened that made me push this project forward. One, I declared config bankruptcy and started to rewrite my config from scratch and, two, the guilt of renewing this domain for another year kicked in.</p>
+<p>This site is a extension of a <a href="https://www.ingentaconnect.com/content/matthey/jmtr/2022/00000066/00000002/art00002;jsessionid=85415haetimmp.x-ic-live-03">paper written in 2022</a> which I hope will work as a minimal viable config for people wanting to start out using this tool within their workflows.</p>
+<p>I have since moved way from the bench and am no longer a reserch scientist. My work has moved into helping scientists with their work using digital tools. Emacs is one such tool.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="using-this-page">Using this page.</h2>
+<p>This page is a single hosted file. It is written in org. If you download the file and run <code>M-x org-babel-tangle-file</code> and point it to  <code>init.el</code>, that will create a config of just the parts needed by emacs. Put this in you  <code>~./emacs.d</code> file and you are good to go.</p>
+<p>Raw files for both the org, and tangled .el file can be found in the assosisated GitHub repo. Let&rsquo;s get going!</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="essentials">Essentials</h2>
+<p>This section covers basic functionality needed for either admin, quality of life, or for other programs to work.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="enable-melpa">Enable Melpa</h3>
+<p><a href="https://melpa.org/#/">Melpa</a> is <em>the</em> emacs package repository. Most, if not all, packages in this config are grabbed from there. The below code enables this.</p>
+<pre><code>(require 'package)
+(add-to-list 'package-archives '(&quot;melpa&quot; . &quot;https://melpa.org/packages/&quot;) t)
+;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
+;; and `package-pinned-packages`. Most users will not need or want to do this.
+;;(add-to-list 'package-archives '(&quot;melpa-stable&quot; . &quot;https://stable.melpa.org/packages/&quot;) t)
+(package-initialize)
+(package-refresh-contents)
+</code></pre>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="use-package">use-package</h3>
+<p>Admin, use-package allows you to isolate package configuration within the config.</p>
+<pre><code>(require 'use-package)
+</code></pre>
+<ol>
+<li>
+<p>enable evil mode</p>
+<p><a href="https://github.com/emacs-evil/evil">evil mode</a> a quaility of life feature, it gives you access to vi behaviours. some workflows are better with it.</p>
+<pre><code>;; Download Evil
+(unless (package-installed-p 'evil)
+  (package-install 'evil))
+
+;; Enable Evil
+(require 'evil)
+(evil-mode 1)
+</code></pre>
+<ol>
+<li>
+<p>Auto complete in m-x</p>
+<pre><code>(require 'ivy)
+(ivy-mode 1)
+
+
+(setq ivy-on-del-error-function #'ignore)
+
+
+
+(require 'smex)
+
+
+
+(require 'ido)
+(ido-mode 1)
+
+(setq ido-enable-flex-matching t)
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="recent-files">Recent files</h2>
+<pre><code>(recentf-mode 1)
+(setq recentf-max-menu-items 25)
+</code></pre>
+<ol>
+<li>
+<p>Aesthetics</p>
+<ol>
+<li>
+<p>Hide tool bar and menu</p>
+<pre><code>(menu-bar-mode -1)
+(tool-bar-mode -1)
+</code></pre>
+</li>
+<li>
+<p>Themes</p>
+<p>This is super subjective so choose something that works for you, a non-exhaustive list can be found <a href="https://emacsthemes.com/">here</a>.</p>
+<pre><code>(require 'kanagawa-theme)
+(load-theme 'kanagawa t)
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Misc.</p>
+<pre><code>(setq use-short-answers t)
+</code></pre>
+</li>
+</ol>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="writing-text">Writing text</h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="focused-writing">Focused writing</h3>
+<p>I am a big fan of writeroom-mode, which centers the text and makes the buffer full screen. Focus mode is also super neat, only showing colour formatting on the text block you are writing. Both can be enabled with `M-x`.</p>
+<pre><code>(require 'focus)
+(require 'writeroom-mode)
+</code></pre>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="visual-line-mode">Visual-line-mode</h3>
+<p>It&rsquo;s word wrap, it&rsquo;s needed.</p>
+<pre><code>(visual-line-mode 1)
+</code></pre>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="spell-check">Spell check</h3>
+<pre><code>(flyspell-mode t)
+</code></pre>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="org-mode">Org mode</h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="asthetics">Asthetics</h3>
+<pre><code>(require 'org-modern-mode)
+(with-eval-after-load 'org (global-org-modern-mode))
+</code></pre>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="org-agenda">Org agenda</h3>
+<pre><code>(setq org-agenda-files
+    (directory-files-recursively &quot;~/Dropbox/org&quot; &quot;\\.org$&quot;))
+</code></pre>
+<ol>
+<li>
+<p>Key bindings</p>
+<pre><code>(global-set-key (kbd &quot;&lt;f12&gt;&quot;) 'org-agenda)
+</code></pre>
+</li>
+</ol>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="knowledge-mangmet">Knowledge mangmet</h3>
+<ol>
+<li>
+<p>Org Roam</p>
+<pre><code>(use-package org-roam
+    :ensure t
+    :custom
+    (org-roam-directory (file-truename &quot;~/Dropbox/OrgRoam/&quot;))
+    :bind ((&quot;C-c n l&quot; . org-roam-buffer-toggle)
+	   (&quot;C-c n f&quot; . org-roam-node-find)
+	   (&quot;C-c n g&quot; . org-roam-graph)
+	   (&quot;C-c n i&quot; . org-roam-node-insert)
+	   (&quot;C-c n c&quot; . org-roam-capture)
+	   ;; Dailies
+	   (&quot;C-c n j&quot; . org-roam-dailies-capture-today))
+    :config
+    ;; If you're using a vertical completion framework, you might want a more informative completion interface
+    (setq org-roam-node-display-template (concat &quot;${title:*} &quot; (propertize &quot;${tags:10}&quot; 'face 'org-tag)))
+    (org-roam-db-autosync-mode)
+    ;; If using org-roam-protocol
+    (require 'org-roam-roam))
+</code></pre>
+</li>
+<li>
+<p>Denote</p>
+<pre><code>(require 'denote)
+(setq denote-directory &quot;~/Dropbox/Denote/&quot;)
+</code></pre>
+</li>
+</ol>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="snippet">snippet</h2>
+<p>$ cd ~/.emacs.d/plugins
+$ git clone –recursive <a href="https://github.com/joaotavora/yasnippet">https://github.com/joaotavora/yasnippet</a></p>
+<pre><code>(add-to-list 'load-path
+	      &quot;~/.emacs.d/plugins/yasnippet&quot;)
+(require 'yasnippet)
+(yas-global-mode 1)
+</code></pre>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

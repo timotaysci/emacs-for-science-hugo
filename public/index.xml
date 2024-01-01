@@ -8,11 +8,11 @@
     <language>en-uk</language>
     <atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title></title>
+      <title>Emacs for Science</title>
       <link>https://example.org/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
       <guid>https://example.org/</guid>
-      <description>Table of Contents Introduction Using this page. Essentials Enable Melpa use-package Recent files Writing text Focused writing Visual-line-mode Spell check Org mode Asthetics Org agenda Knowledge mangmet snippet Introduction In late 2023 two things happened that made me push this project forward. One, I declared config bankruptcy and started to rewrite my config from scratch and, two, the guilt of renewing this domain for another year kicked in.&#xA;This site is a extension of a paper written in 2022 which I hope will work as a minimal viable config for people wanting to start out using this tool within their workflows.</description>
+      <description>Introduction In late 2023 two things happened that made me push this project forward. One, I declared config bankruptcy and started to rewrite my config from scratch and, two, the guilt of renewing this domain for another year kicked in.&#xA;This site is a extension of a paper written in 2022 which I hope will work as a minimal viable config for people wanting to start out using this tool within their workflows.</description>
     </item>
   </channel>
 </rss>

@@ -1,23 +1,7 @@
-
-# Table of Contents
-
-1.  [Introduction](#org63a22bd)
-    1.  [Using this page.](#org81e7938)
-    2.  [Essentials](#orgdf8b95b)
-        1.  [Enable Melpa](#orga5cc50c)
-        2.  [use-package](#org18f811b)
-    3.  [Recent files](#org87fb53f)
-    4.  [Writing text](#org8168207)
-        1.  [Focused writing](#orgd51c246)
-        2.  [Visual-line-mode](#org62dd309)
-        3.  [Spell check](#orge410603)
-    5.  [Org mode](#orgd42aa40)
-        1.  [Asthetics](#orgd8074c7)
-        2.  [Org agenda](#org96c86e7)
-        3.  [Knowledge mangmet](#orge5be3f9)
-    6.  [snippet](#org8a99389)
-
-
+---
+title: "Emacs for Science"
+date: 2024-01-01
+---
 <a id="org63a22bd"></a>
 
 # Introduction
