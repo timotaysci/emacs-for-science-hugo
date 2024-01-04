@@ -7,13 +7,5 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
     <atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Emacs for Science - electric bugoaloo</title>
-      <link>https://example.org/</link>
-      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://example.org/</guid>
-      <description>Introduction In late 2023 two things happened that made me push this project forward. One, I declared config bankruptcy and started to rewrite my config from scratch and, two, the guilt of renewing this domain for another year kicked in.
-This site is a extension of a paper written in 2022 which I hope will work as a minimal viable config for people wanting to start out using this tool within their workflows.</description>
-    </item>
   </channel>
 </rss>

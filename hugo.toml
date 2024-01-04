@@ -1,7 +1,7 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-uk'
 title = 'Emacs for Science'
-theme = "PaperMod"
+theme = "book"
 [menu]
   [[menu.main]]
     identifier = "home"
@@ -17,7 +17,7 @@ theme = "PaperMod"
 [params]
   author = "Timothy Johnson"
   description = "Emacs for science"
-  menu_item_separator = " - "
+  themeVariant = "blue"
   [[params.social]]
     icon = "github"
     name = "Github"
