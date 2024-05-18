@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-uk" dir="ltr">
 <head>
-	<meta name="generator" content="Hugo 0.121.1">
+	<meta name="generator" content="Hugo 0.121.2">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Introduction In late 2023 two things happened that made me push this project forward. One, I declared config bankruptcy and started to rewrite my config from scratch and, two, the guilt of renewing this domain for another year kicked in.
-This site is a extension of a paper written in 2022 which I hope will work as a minimal viable config for people wanting to start out using this tool within their workflows.">
+<meta name="description" content="Introduction In late 2023, two events prompted me to accelerate this project. Firstly, I declared config bankruptcy and initiated a rewrite of my configuration from scratch. Secondly, the guilt of renewing the domain without working on it for another year set in.
+This site serves as an extension of a paper written in 2022, aiming to function as a minimal viable config for individuals looking to incorporate this tool into their workflows.">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
@@ -156,33 +156,35 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="#headline-17">Org mode</a>
 <ul>
-<li><a href="#headline-18">Asthetics</a>
+<li><a href="#headline-18">Coding</a>
 </li>
-<li><a href="#headline-19">Org agenda</a>
+<li><a href="#headline-19">Asthetics</a>
+</li>
+<li><a href="#headline-20">Org agenda</a>
 <ul>
-<li><a href="#headline-20">Key bindings</a>
+<li><a href="#headline-21">Key bindings</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-21">Knowledge management</a>
+<li><a href="#headline-22">Knowledge management</a>
 <ul>
-<li><a href="#headline-22">Org Roam</a>
+<li><a href="#headline-23">Org Roam</a>
 </li>
-<li><a href="#headline-23">Denote</a>
-</li>
-</ul>
+<li><a href="#headline-24">Denote</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-24">snippet</a>
+</ul>
+</li>
+<li><a href="#headline-25">snippet</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-25">Bibilography</a>
+<li><a href="#headline-26">Bibilography</a>
 <ul>
-<li><a href="#headline-26">Org-noter</a>
+<li><a href="#headline-27">Org-noter</a>
 </li>
-<li><a href="#headline-27">Org-ref</a>
+<li><a href="#headline-28">Org-ref</a>
 </li>
 </ul>
 </li>
@@ -205,11 +207,11 @@ Introduction
 </h2>
 <div id="outline-text-headline-1" class="outline-text-2">
 <p>
-In late 2023 two things happened that made me push this project forward. One, I declared config bankruptcy and started to rewrite my config from scratch and, two, the guilt of renewing this domain for another year kicked in.</p>
+In late 2023, two events prompted me to accelerate this project. Firstly, I declared config bankruptcy and initiated a rewrite of my configuration from scratch. Secondly, the guilt of renewing the domain without working on it for another year set in.</p>
 <p>
-This site is a extension of a <a href="https://www.ingentaconnect.com/content/matthey/jmtr/2022/00000066/00000002/art00002;jsessionid=85415haetimmp.x-ic-live-03">paper written in 2022</a> which I hope will work as a minimal viable config for people wanting to start out using this tool within their workflows.</p>
+This site serves as an extension of a <a href="https://www.ingentaconnect.com/content/matthey/jmtr/2022/00000066/00000002/art00002;jsessionid=85415haetimmp.x-ic-live-03">paper written in 2022</a>, aiming to function as a minimal viable config for individuals looking to incorporate this tool into their workflows.</p>
 <p>
-I have since moved way from the bench and am no longer a reserch scientist. My work has moved into helping scientists with their work using digital tools. Emacs is one such tool.</p>
+Since then, I&#39;ve transitioned away from the bench and no longer hold the position of a research scientist. My current focus is on assisting scientists in utilizing digital tools, with Emacs being one such tool in my repertoire.</p>
 <div id="outline-container-headline-2" class="outline-3">
 <h3 id="headline-2">
 Using this page.
@@ -279,15 +281,9 @@ Auto complete in <code>M-x</code>
 <div class="src src-elisp">
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(require <span style="color:#e6db74">&#39;ivy</span>)
 </span></span><span style="display:flex;"><span>(ivy-mode <span style="color:#ae81ff">1</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>(setq ivy-on-del-error-function <span style="color:#a6e22e">#&#39;</span>ignore)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>(require <span style="color:#e6db74">&#39;smex</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>(require <span style="color:#e6db74">&#39;ido</span>)
 </span></span><span style="display:flex;"><span>(ido-mode <span style="color:#ae81ff">1</span>)
@@ -407,9 +403,35 @@ Org mode
 <div id="outline-text-headline-17" class="outline-text-3">
 <div id="outline-container-headline-18" class="outline-4">
 <h4 id="headline-18">
-Asthetics
+Coding
 </h4>
 <div id="outline-text-headline-18" class="outline-text-4">
+<p>
+Nowerdays scientists are expected to be hybrid scientist/developers. This is a key aspect of the current scientific world. Emacs, and org-mode spesifically, allows for the creation of docuemnts with embeded code.</p>
+<p>
+This may seem benign, however I wrote about this at length in the <a href="https://www.ingentaconnect.com/content/matthey/jmtr/2022/00000066/00000002/art00002;jsessionid=85415haetimmp.x-ic-live-03">paper</a>, but this enables some amazing productivity boosts. As an example, I have written papers in emacs that do all the data analysis within the docuemnt, this means upon peer review chaning anything is super trivial. It also means that you have a reproducible docuemtn to pass on when needed.</p>
+<div class="src src-elisp">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(org-babel-do-load-languages
+</span></span><span style="display:flex;"><span> <span style="color:#e6db74">&#39;org-babel-load-languages</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>((python <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)))</span></span></code></pre></div>
+</div>
+<p>
+Then by adding in code blocks like the below, and using <code>C-c C-C</code> you can evaluate your python within a plain text org file!</p>
+<pre class="example">
+#+begin_src python :results output
+
+print(5*5)
+
+
+#+end_src
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-19" class="outline-4">
+<h4 id="headline-19">
+Asthetics
+</h4>
+<div id="outline-text-headline-19" class="outline-text-4">
 <p>
 This is super subjective however I love org-modern-mode. But other options include </p>
 <div class="src src-elisp">
@@ -418,20 +440,20 @@ This is super subjective however I love org-modern-mode. But other options inclu
 </div>
 </div>
 </div>
-<div id="outline-container-headline-19" class="outline-4">
-<h4 id="headline-19">
+<div id="outline-container-headline-20" class="outline-4">
+<h4 id="headline-20">
 Org agenda
 </h4>
-<div id="outline-text-headline-19" class="outline-text-4">
+<div id="outline-text-headline-20" class="outline-text-4">
 <div class="src src-elisp">
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>  (setq org-agenda-files
 </span></span><span style="display:flex;"><span>      (directory-files-recursively <span style="color:#e6db74">&#34;~/Dropbox/org&#34;</span> <span style="color:#e6db74">&#34;\\.org$&#34;</span>))</span></span></code></pre></div>
 </div>
-<div id="outline-container-headline-20" class="outline-5">
-<h5 id="headline-20">
+<div id="outline-container-headline-21" class="outline-5">
+<h5 id="headline-21">
 Key bindings
 </h5>
-<div id="outline-text-headline-20" class="outline-text-5">
+<div id="outline-text-headline-21" class="outline-text-5">
 <div class="src src-elisp">
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(global-set-key (kbd <span style="color:#e6db74">&#34;&lt;f12&gt;&#34;</span>) <span style="color:#e6db74">&#39;org-agenda</span>)</span></span></code></pre></div>
 </div>
@@ -439,20 +461,20 @@ Key bindings
 </div>
 </div>
 </div>
-<div id="outline-container-headline-21" class="outline-4">
-<h4 id="headline-21">
+<div id="outline-container-headline-22" class="outline-4">
+<h4 id="headline-22">
 Knowledge management
 </h4>
-<div id="outline-text-headline-21" class="outline-text-4">
+<div id="outline-text-headline-22" class="outline-text-4">
 <p>
 A Knowledge Management System (KMS) is indispensable in scientific academia for streamlining information retrieval, fostering collaboration, and enhancing productivity. By efficiently organizing and centralizing vast amounts of data, a KMS facilitates seamless knowledge sharing among researchers, promotes interdisciplinary integration, and ensures version control for reproducibility. It also supports intellectual property management, aids in training and onboarding, and assists in compliance with data management standards. Moreover, a KMS empowers decision-makers with valuable insights for strategic planning and resource allocation. Its adaptability ensures relevance in the dynamic landscape of scientific research, contributing significantly to the acceleration of discovery and the overall advancement of knowledge.</p>
 <p>
 There are two possible systems I would suggest that can help with your KVM journey. That being org-roam or denote. I&#39;m a big fan of denote mostly as it does not require an external database - however many love org-roam. Explore both and see what works for you.</p>
-<div id="outline-container-headline-22" class="outline-5">
-<h5 id="headline-22">
+<div id="outline-container-headline-23" class="outline-5">
+<h5 id="headline-23">
 Org Roam
 </h5>
-<div id="outline-text-headline-22" class="outline-text-5">
+<div id="outline-text-headline-23" class="outline-text-5">
 <p>The package is inspired by the Zettelkasten method, a note-taking and knowledge organization system. Org-roam enables users to create bi-directional links between notes, providing a dynamic way to explore relationships between different pieces of information. Users often find this approach useful for personal knowledge management, research, and organizing thoughts in a non-linear fashion.</p>
 <p>
 Set your <code>org-roam-directory</code> and you can create your first note. Solid documentation can be found <a href="https://www.orgroam.com/manual.html">here</a>.</p>
@@ -477,11 +499,11 @@ Set your <code>org-roam-directory</code> and you can create your first note. Sol
 </div>
 </div>
 </div>
-<div id="outline-container-headline-23" class="outline-5">
-<h5 id="headline-23">
+<div id="outline-container-headline-24" class="outline-5">
+<h5 id="headline-24">
 Denote
 </h5>
-<div id="outline-text-headline-23" class="outline-text-5">
+<div id="outline-text-headline-24" class="outline-text-5">
 <p>
 Denote is very simple, with docs <a href="https://protesilaos.com/emacs/denote">here</a>. Simply set-up your <code>denote-directory</code> and use <code>M-x Denote</code> to get started. </p>
 <div class="src src-elisp">
@@ -494,11 +516,11 @@ Denote is very simple, with docs <a href="https://protesilaos.com/emacs/denote">
 </div>
 </div>
 </div>
-<div id="outline-container-headline-24" class="outline-3">
-<h3 id="headline-24">
+<div id="outline-container-headline-25" class="outline-3">
+<h3 id="headline-25">
 snippet
 </h3>
-<div id="outline-text-headline-24" class="outline-text-3">
+<div id="outline-text-headline-25" class="outline-text-3">
 <p>
 YASnippet (Yet Another Snippet) package in Emacs. YASnippet is a template system for Emacs that allows you to insert frequently-used code snippets or text templates. This makes writing and producting documentatuin much faster than without. </p>
 <p>
@@ -519,16 +541,16 @@ then enable in the config with the below:</p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-25" class="outline-2">
-<h2 id="headline-25">
+<div id="outline-container-headline-26" class="outline-2">
+<h2 id="headline-26">
 Bibilography
 </h2>
-<div id="outline-text-headline-25" class="outline-text-2">
-<div id="outline-container-headline-26" class="outline-3">
-<h3 id="headline-26">
+<div id="outline-text-headline-26" class="outline-text-2">
+<div id="outline-container-headline-27" class="outline-3">
+<h3 id="headline-27">
 Org-noter
 </h3>
-<div id="outline-text-headline-26" class="outline-text-3">
+<div id="outline-text-headline-27" class="outline-text-3">
 <p>
 Org noter acts as a way to add notes with </p>
 <div class="src src-elisp">
@@ -536,11 +558,11 @@ Org noter acts as a way to add notes with </p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-27" class="outline-3">
-<h3 id="headline-27">
+<div id="outline-container-headline-28" class="outline-3">
+<h3 id="headline-28">
 Org-ref
 </h3>
-<div id="outline-text-headline-27" class="outline-text-3">
+<div id="outline-text-headline-28" class="outline-text-3">
 <div class="src src-elisp">
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(use-package org-ref
 </span></span><span style="display:flex;"><span>  :ensure <span style="color:#66d9ef">t</span>
@@ -644,33 +666,35 @@ Org-ref
 </li>
 <li><a href="#headline-17">Org mode</a>
 <ul>
-<li><a href="#headline-18">Asthetics</a>
+<li><a href="#headline-18">Coding</a>
 </li>
-<li><a href="#headline-19">Org agenda</a>
+<li><a href="#headline-19">Asthetics</a>
+</li>
+<li><a href="#headline-20">Org agenda</a>
 <ul>
-<li><a href="#headline-20">Key bindings</a>
+<li><a href="#headline-21">Key bindings</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-21">Knowledge management</a>
+<li><a href="#headline-22">Knowledge management</a>
 <ul>
-<li><a href="#headline-22">Org Roam</a>
+<li><a href="#headline-23">Org Roam</a>
 </li>
-<li><a href="#headline-23">Denote</a>
-</li>
-</ul>
+<li><a href="#headline-24">Denote</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-24">snippet</a>
+</ul>
+</li>
+<li><a href="#headline-25">snippet</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-25">Bibilography</a>
+<li><a href="#headline-26">Bibilography</a>
 <ul>
-<li><a href="#headline-26">Org-noter</a>
+<li><a href="#headline-27">Org-noter</a>
 </li>
-<li><a href="#headline-27">Org-ref</a>
+<li><a href="#headline-28">Org-ref</a>
 </li>
 </ul>
 </li>

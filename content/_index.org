@@ -1,11 +1,11 @@
-
 * Introduction
 
-In late 2023 two things happened that made me push this project forward. One, I declared config bankruptcy and started to rewrite my config from scratch and, two, the guilt of renewing this domain for another year kicked in.
+In late 2023, two events prompted me to accelerate this project. Firstly, I declared config bankruptcy and initiated a rewrite of my configuration from scratch. Secondly, the guilt of renewing the domain without working on it for another year set in.
 
-This site is a extension of a [[https://www.ingentaconnect.com/content/matthey/jmtr/2022/00000066/00000002/art00002;jsessionid=85415haetimmp.x-ic-live-03][paper written in 2022]] which I hope will work as a minimal viable config for people wanting to start out using this tool within their workflows.
+This site serves as an extension of a [[https://www.ingentaconnect.com/content/matthey/jmtr/2022/00000066/00000002/art00002;jsessionid=85415haetimmp.x-ic-live-03][paper written in 2022]], aiming to function as a minimal viable config for individuals looking to incorporate this tool into their workflows.
 
-I have since moved way from the bench and am no longer a reserch scientist. My work has moved into helping scientists with their work using digital tools. Emacs is one such tool.
+Since then, I've transitioned away from the bench and no longer hold the position of a research scientist. My current focus is on assisting scientists in utilizing digital tools, with Emacs being one such tool in my repertoire.
+
 
 ** Using this page.
 
@@ -32,9 +32,14 @@ This section covers basic functionality needed for either admin, quality of life
 
 *** use-package
 
-Admin, use-package allows you to isolate package configuration within the config. 
+Admin, use-package allows you to isolate package configuration within the configuration. There is likely a neater way to do this but this works.
+
+
 #+begin_src elisp :tangle init.el
-(require 'use-package)
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+  (require 'use-package)
 #+end_src
 
 
@@ -43,14 +48,12 @@ Admin, use-package allows you to isolate package configuration within the config
  
 [[https://github.com/emacs-evil/evil][evil mode]] a quaility of life feature, it gives you access to vi behaviours. some workflows are better with it.
 #+begin_src elisp :tangle init.el
-;; Download Evil
-(unless (package-installed-p 'evil)
-  (package-install 'evil))
 
-;; Enable Evil
-(require 'evil)
-(evil-mode 1)
-
+    ;; Enable Evil
+    (use-package evil
+    :ensure t
+    )
+    (evil-mode 1)
   
 #+end_src
 
@@ -58,36 +61,33 @@ Admin, use-package allows you to isolate package configuration within the config
 ***** Auto complete in ~M-x~
 
 
-#+begin_src elisp :tangle init.el
+#+begin_src elisp 
+      (use-package ivy
+	:ensure t)
+      (ivy-mode 1)
+      (setq ivy-on-del-error-function #'ignore)
 
+      (use-package smex
+    :ensure t)
 
-(require 'ivy)
-(ivy-mode 1)
+      (use-package ido
+       :ensure t)
+      (ido-mode 1)
 
-
-(setq ivy-on-del-error-function #'ignore)
-
-
-
-(require 'smex)
-
-
-
-(require 'ido)
-(ido-mode 1)
-
-(setq ido-enable-flex-matching t)
-
-
+      (setq ido-enable-flex-matching t)
 #+end_src
 
 ** Recent files 
 #+begin_src elisp :tangle init.el
-(recentf-mode 1)
-(setq recentf-max-menu-items 25)
+  (use-package recentf
+    :ensure t)
+    (recentf-mode 1)
+    (setq recentf-max-menu-items 25)
 #+end_src
 
 ******* Aesthetics
+
+Given its reputation it can surprise people that emacs can be made to appeal to a wide range of tastes. The below is how I configure mine but feel free to change things up and find out what works for you.
 ******** Hide tool bar and menu
 
 #+begin_src elisp :tangle init.el
@@ -100,9 +100,15 @@ Admin, use-package allows you to isolate package configuration within the config
 This is super subjective so choose something that works for you, a non-exhaustive list can be found [[https://emacsthemes.com/][here]].
 
 #+begin_src elisp :tangle init.el
-(require 'kanagawa-theme)
-(load-theme 'kanagawa t)
+  ;;(use-package kanagawa-theme
+  ;;:ensure t)
+  ;;(load-theme 'kanagawa t)
 
+
+
+    (use-package ef-themes
+  :ensure t)
+  (load-theme 'ef-dream t)
 #+end_src
 
 ******* Misc.
@@ -124,8 +130,10 @@ The below enable ~y~ or ~n~ when confirming interactions with emacs, like runnin
 I am a big fan of writeroom-mode, which centers the text and makes the buffer full screen. Focus mode is also super neat, only showing colour formatting on the text block you are writing. Both can be enabled with ~M-x~.
 
 #+begin_src elisp :tangle init.el
-(require 'focus)
-(require 'writeroom-mode)
+    (use-package focus
+    :ensure t)
+    (use-package writeroom-mode
+  :ensure t)
 #+end_src
 
 
@@ -136,7 +144,9 @@ It's word wrap, it's needed.
 
 
 #+begin_src elisp :tangle init.el
-(visual-line-mode 1)
+(global-visual-line-mode 1)
+
+  
 #+end_src
 
 
@@ -152,15 +162,51 @@ Spell checking is clearly super important, enable it here.
 
 ** Org mode
 
+*** Coding
+
+Nowerdays scientists are expected to be hybrid scientist/developers. This is a key aspect of the current scientific world. Emacs, and org-mode spesifically, allows for the creation of docuemnts with embeded code.
+
+This may seem benign, however I wrote about this at length in the [[https://www.ingentaconnect.com/content/matthey/jmtr/2022/00000066/00000002/art00002;jsessionid=85415haetimmp.x-ic-live-03][paper]], but this enables some amazing productivity boosts. As an example, I have written papers in emacs that do all the data analysis within the docuemnt, this means upon peer review chaning anything is super trivial. It also means that you have a reproducible docuemtn to pass on when needed.
+
+#+begin_src elisp :tangle init.el
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)))
+
+#+end_src
+
+
+Then by adding in code blocks like the below, and using ~C-c C-C~ you can evaluate your python within a plain text org file!
+
+
+
+#+begin_example
+#+begin_src python :results output
+
+print(5*5)
+
+
+#+end_src
+
+
+#+end_example
 
 *** Asthetics
 
 This is super subjective however I love org-modern-mode. But other options include 
 
 #+begin_src elisp :tangle init.el
-(require 'org-modern-mode)
-(with-eval-after-load 'org (global-org-modern-mode))
+
+  (use-package org-modern
+  :ensure t)
+    (with-eval-after-load 'org (global-org-modern-mode))
+
+
 #+end_src
+
+#+RESULTS:
+: t
 
 
 *** Org agenda
@@ -206,7 +252,7 @@ Set your ~org-roam-directory~ and you can create your first note. Solid document
     (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
     (org-roam-db-autosync-mode)
     ;; If using org-roam-protocol
-    (require 'org-roam-roam))
+    (require 'org-roam))
 
 
 #+end_src
@@ -216,8 +262,9 @@ Denote is very simple, with docs [[https://protesilaos.com/emacs/denote][here]].
 
 
 #+begin_src elisp :tangle init.el
-(require 'denote)
-(setq denote-directory "~/Dropbox/Denote/")
+  (use-package denote
+  :ensure t)
+  (setq denote-directory "~/Dropbox/Denote/")
 #+end_src
 
 
@@ -239,11 +286,14 @@ $ git clone --recursive https://github.com/joaotavora/yasnippet
 
 then enable in the config with the below:
 
-#+begin_src elsip :tangle init.el
-(add-to-list 'load-path
-              "~/.emacs.d/plugins/yasnippet")
-(require 'yasnippet)
-(yas-global-mode 1)
+#+begin_src elisp :tangle init.el
+  (use-package yasnippet
+  :ensure t)
+  (yas-global-mode 1)
+
+  (define-key yas-minor-mode-map (kbd "<tab>") nil)
+  (define-key yas-minor-mode-map (kbd "TAB") nil)
+
 #+end_src
 
 * Bibilography
@@ -254,14 +304,15 @@ Org noter acts as a way to add notes with
 
 #+begin_src elisp :tangle init.el
 
-(require org-noter)
+  (use-package org-noter
+  :ensure t)
   
 
 #+end_src
 
 ** Org-ref
 
-#+begin_src elisp :tangle init.el
+#+begin_src elisp
 
 (use-package org-ref
   :ensure t
@@ -272,5 +323,275 @@ Org noter acts as a way to add notes with
   ;; Set PDF location if you're using PDFs
   (setq org-ref-pdf-directory "~/Dropbox/ref/pdf_folder/"))
 
-(require org-ref)
+(require 'org-ref)
 #+end_src
+
+
+
+** LSP Mode
+
+
+
+
+#+begin_src elisp :tangle init.el
+
+  (use-package lsp-mode
+  :ensure t)
+  (add-hook 'python-mode-hook #'lsp)
+
+#+end_src
+
+#+RESULTS:
+| lsp | (lambda nil (lsp-python-enable)) | company-mode |
+
+
+** Company
+
+#+begin_src elisp :tangle init.el
+
+;; Install and configure Company mode
+(use-package company
+  :ensure t
+  :config
+  (global-company-mode 1)
+  ;; Set a shorter delay before showing completions (in seconds)
+  (setq company-idle-delay 0.2)
+  ;; Set a minimum prefix length for completions
+  (setq company-minimum-prefix-length 1))
+
+;; Configure Company mode backends for Python with company-jedi
+(use-package company-jedi
+  :ensure t
+  :after python
+  :config
+  (add-to-list 'company-backends 'company-jedi))
+
+;; Set up keybinding for manual completion trigger (M-TAB)
+(global-set-key (kbd "M-TAB") 'company-complete)
+
+;; Enable Company mode for Python
+(add-hook 'python-mode-hook 'company-mode)
+
+
+  
+#+end_src
+
+
+
+#+begin_src elisp :tangle init.el
+(ido-mode -1)
+(global-set-key (kbd "C-x C-f") 'find-file)
+
+#+end_src
+
+
+
+** Org-pomadora
+
+#+begin_src elisp :tangle init.el
+  (use-package org-pomodoro
+  :ensure t)
+
+#+end_src
+
+#+RESULTS:
+: org-pomodoro
+
+** New Scratch Buffer
+
+Function to make a quick,blank, buffer.
+
+#+begin_src elisp :tangle init.el
+(defun new-scratch-buffer ()
+  "Create a new scratch buffer."
+  (interactive)
+  (switch-to-buffer (get-buffer-create "*scratch*")))
+
+
+#+end_src
+
+#+RESULTS:
+: new-scratch-buffer
+
+
+
+* Planning
+
+Planning philosophy
+
+#+begin_src elisp :tangle init.el
+
+
+    (defun  planning-create-file-with-date ()
+      "Create a new Org mode file named with the current date and insert a heading and a YASnippet template."
+      (interactive)
+      (let* ((filename (format-time-string "~/Dropbox/org/planning/daily/Daily %Y-%m-%d.org"))
+	     )
+	(find-file filename)
+	;; Insert the YASnippet "Daily Planning" template
+	(yas-expand-snippet (yas-lookup-snippet "Daily Planning"))))
+
+
+    (defun  planning-quarterly-create-file-with-date ()
+      "Create a new Org mode file named with the current date and insert a heading and a YASnippet template."
+      (interactive)
+      (let* ((filename (format-time-string "~/Dropbox/org/planning/quarterly/Q %Y-%m.org"))
+	     )
+	(find-file filename)
+	;; Insert the YASnippet "Daily Planning" template
+	(yas-expand-snippet (yas-lookup-snippet "Quarterly Planning"))))
+  
+
+
+
+#+end_src
+
+#+RESULTS:
+: planning-quarterly-create-file-with-date
+
+
+#+begin_src elisp :tangle init.el
+
+    (use-package projectile
+  :ensure t)
+
+    (setq visual-line-mode t)
+
+    ;;(setq flyspell-mode t)
+   (add-hook 'text-mode-hook 'flyspell-mode)
+#+end_src
+
+
+
+#+begin_src elisp :tangle init.el
+(setq org-return-follows-link  t)
+
+#+end_src
+
+
+
+* Abbrev-mode
+
+Abbrev-mode allows you to store and call abbreviations in your buffers.
+
+This mode is buffer-local so you need to add-hook to each mode to call it.
+
+It works inheratnly on differnt tables global -> text -> org
+
+the below adds to or-mode-abbrev-table. but global- or text- would also work
+
+
+[[https://www.youtube.com/watch?v=ruPpRlh2re4][Prots Vid]]
+
+#+begin_src elisp :tangle init.el
+
+  (define-abbrev org-mode-abbrev-table "az" "Azure")
+  (add-hook 'org-mode-hook 'abbrev-mode)
+
+
+
+#+end_src
+
+#+RESULTS:
+
+* Show key binding completion
+
+
+
+
+
+#+begin_src elisp :tangle init.el
+    (use-package which-key
+  :ensure t)
+    (which-key-setup-side-window-bottom)
+    (which-key-mode)
+#+end_src
+
+
+#+begin_src elisp :tangle init.el
+
+	    ;; fix silly tab behaviour in org bable code blocks 
+	      (setq org-adapt-indentation nil)
+
+
+
+
+
+  ;; does M-x neatly - showing all commands as you type
+		(use-package vertico
+			:ensure t
+			:config
+		(vertico-mode 1)
+
+
+				    )
+
+  ;; works with above - allows for bette searching (ignore '-' for example)
+   (use-package orderless
+    :ensure t
+    :config
+    (setq completion-styles '(orderless basic)))
+
+  ;; adds text explaining stuff in mini buffer 
+    (use-package marginalia
+      :ensure t
+      :config
+      (marginalia-mode 1))
+
+
+  ;; does cool stuff like previe 
+      (use-package consult
+      :ensure t
+      :bind (;; A recursive grep
+	     ("M-s M-g" . consult-grep)
+	     ;; Search for files names recursively
+	     ("M-s M-f" . consult-find)
+	     ;; Search through the outline (headings) of the file
+	     ("M-s M-o" . consult-outline)
+	     ;; Search the current buffer
+	     ("M-s M-l" . consult-line)
+	     ;; Switch to another buffer, or bookmarked file, or recently
+	     ;; opened file.
+	     ("M-s M-b" . consult-buffer)))
+
+
+
+
+ #+end_src
+
+#+RESULTS:
+: consult-buffer
+
+#+begin_src elisp :tangle init.el
+
+    (use-package org-drill
+      :ensure t
+      :config
+      )
+
+#+end_src
+
+
+#+begin_src elisp :tangle init.el
+
+  (use-package smart-mode-line
+    :ensure t
+    
+
+ :init
+  (setq sml/vc-mode-show-backend t)
+  (setq sml/no-confirm-load-theme t)
+
+  :config
+  (sml/setup)
+  (sml/apply-theme 'automatic))
+(setq visible-bell t)
+#+end_src
+
+#+begin_src elisp :tangle init.el
+
+  (use-package dired-sidebar
+  :ensure t)
+
+#+end_src
+

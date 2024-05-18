@@ -17,7 +17,7 @@ theme = "book"
 [params]
   author = "Timothy Johnson"
   description = "Emacs for science"
-  themeVariant = "blue"
+  BookSearch = true
   [[params.social]]
     icon = "github"
     name = "Github"
